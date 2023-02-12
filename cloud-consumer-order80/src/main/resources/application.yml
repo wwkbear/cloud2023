@@ -1,0 +1,22 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: cloud-consumer-order80
+
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+      poll-interval: 2s
+      quiet-period: 1s
+
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      #defaultZone: http://localhost:7001/eureka
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
