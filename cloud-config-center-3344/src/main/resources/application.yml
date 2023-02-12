@@ -10,8 +10,8 @@ spring:
         git:
 #          uri: git@github.com:wwkbear/springcloud-config.git #GitHub上面的git仓库名字
 #          uri: https://github.com/wwkbear/springcloud-config.git #GitHub上面的git仓库名字
-#          uri: git@github.com:wwkbear/cloud2023.git
-          uri: https://github.com/wwkbear/cloud2023.git
+          uri: git@github.com:wwkbear/cloud2023.git
+#          uri: https://github.com/wwkbear/cloud2023.git
           ####搜索目录
           search-paths:
             - springcloud-config
