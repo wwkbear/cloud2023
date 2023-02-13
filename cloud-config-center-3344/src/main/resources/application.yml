@@ -8,13 +8,14 @@ spring:
     config:
       server:
         git:
-#          uri: git@github.com:wwkbear/springcloud-config.git #GitHub上面的git仓库名字
-#          uri: https://github.com/wwkbear/springcloud-config.git #GitHub上面的git仓库名字
-          uri: git@github.com:wwkbear/cloud2023.git
+#          uri: git@github.com:wwkbear/config.git #GitHub上面的git仓库名字
+          uri: https://github.com/wwkbear/config.git #GitHub上面的git仓库名字
+#          uri: git@github.com:wwkbear/cloud2023.git
 #          uri: https://github.com/wwkbear/cloud2023.git
           ####搜索目录
           search-paths:
             - springcloud-config
+          skip-ssl-validation: true #当不使用ssh连接时使用https连接就跳过ssl检查 就能pull到配置
       ####读取分支
       label: main
 
