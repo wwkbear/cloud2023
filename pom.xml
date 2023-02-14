@@ -22,6 +22,8 @@
         <module>cloud-gateway-gateway9527</module>
         <module>cloud-config-center-3344</module>
         <module>cloud-config-client-3355</module>
+        <module>RabbiMQProducer</module>
+        <module>RabbitMQConsumer</module>
     </modules>
 
     <!-- 统一管理jar包版本 -->
