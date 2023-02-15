@@ -1,8 +1,7 @@
 package com.wwk.producer;
 
 import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
+import com.wwk.springcloud.rabbitmqUtils.RabbitMQUtils;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -25,11 +24,11 @@ public class ProducerMain {
         1.创建一个连接工厂，并设置连接到RabbitMQ的账号，再创建一个连接。
         2.利用连接创建一个通道
         3.利用通道创建一个队列（正常来说要创建一个交换机先再创建一个队列。但只使用一个交换机则不需要）
-            创建队列需要
+            创建队列需要（注：这里的队列参数是队列本身这个容器的参数，并不控制里面的内容。例：这里的持久化只保存队列，不保存队列内容）
                 1.队列名称、
-                2.队列内容是否持久化（存硬盘）、
-                3.队列内容是否共享（是一个消费者使用还是谁都能用）、
-                4.队列内容是否删除（最后一个消费者断开连接后会检查）
+                2.队列是否持久化（存硬盘）
+                3.队列是否共享（是一个消费者使用还是谁都能用）、
+                4.队列是否删除（最后一个消费者断开连接后会检查）
                 5.其他参数
         4.利用通道发送消息publish
             发送消息需要：
@@ -41,15 +40,15 @@ public class ProducerMain {
     public static final String QUEUE_NAME = "wwk";
 
     public static void main(String[] args) {
-        ConnectionFactory connectionFactory = new ConnectionFactory();
-        connectionFactory.setHost("192.168.16.128");
-        connectionFactory.setUsername("admin");
-        connectionFactory.setPassword("123");
+//        ConnectionFactory connectionFactory = new ConnectionFactory();
+//        connectionFactory.setHost("192.168.16.128");
+//        connectionFactory.setUsername("admin");
+//        connectionFactory.setPassword("123");
         String message = "MQ测试"; //要发送的消息
         try {
-            Connection connection = connectionFactory.newConnection();
+//            Connection connection = connectionFactory.newConnection();
             //创建通道
-            Channel channel = connection.createChannel();
+            Channel channel = RabbitMQUtils.getChannel();
             //创建队列
             channel.queueDeclare(QUEUE_NAME,false,false,false,null);
             //发送消息

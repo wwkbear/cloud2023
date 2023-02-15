@@ -1,6 +1,7 @@
 package com.wwk.consumer;
 
 import com.rabbitmq.client.*;
+import com.wwk.springcloud.rabbitmqUtils.RabbitMQUtils;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
@@ -34,14 +35,15 @@ public class RabbitMQConsumerMain {
     private static final String QUEUE_NAME = "wwk";
 
     public static void main(String[] args) {
-        ConnectionFactory connectionFactory = new ConnectionFactory();
-        connectionFactory.setHost("192.168.16.128");
-        connectionFactory.setUsername("admin");
-        connectionFactory.setPassword("123");
+//        ConnectionFactory connectionFactory = new ConnectionFactory();
+//        connectionFactory.setHost("192.168.16.128");
+//        connectionFactory.setUsername("admin");
+//        connectionFactory.setPassword("123");
 
         try {
-            Connection connection = connectionFactory.newConnection();
-            Channel channel = connection.createChannel();
+//            Connection connection = connectionFactory.newConnection();
+            //创建channel通道
+            Channel channel = RabbitMQUtils.getChannel();
             //声明函数
             //消费者成功接收消息后的回调
             DeliverCallback deliverCallback = (consumerTag,message) -> {
