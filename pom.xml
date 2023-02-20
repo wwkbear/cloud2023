@@ -24,6 +24,7 @@
         <module>cloud-config-client-3355</module>
         <module>RabbiMQProducer</module>
         <module>RabbitMQConsumer</module>
+        <module>offerTest1</module>
     </modules>
 
     <!-- 统一管理jar包版本 -->
@@ -85,6 +86,7 @@
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
+                <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>log4j</groupId>

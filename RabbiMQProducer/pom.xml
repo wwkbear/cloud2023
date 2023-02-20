@@ -23,6 +23,7 @@
             <groupId>com.wwk</groupId>
             <artifactId>cloud-api-commons</artifactId>
         </dependency>
+
     </dependencies>
 
     <!--指定 jdk 编译版本-->
